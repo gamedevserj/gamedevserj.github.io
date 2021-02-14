@@ -29,12 +29,22 @@
 }
 
 .cell{
-	margin-left: 10px;
-	margin-bottom: 10px;
+	text-decoration:none;
 }
+
+.cell:hover{
+	border: 1px solid green;
+	border-radius: 5px;
+	background-color:#c1e1ff;
+}
+
 .cell-text{
 	text-align: center;
 	padding: 10px;
+	color: black;
+	
+	font-family:georgia,garamond,serif;
+	font-size:18px;
 }
 .cell-image{
 	display: block;

@@ -4,7 +4,7 @@
 
 .title{
 	text-align: center;
-	padding-top: 75px;
+	padding-top: 25px;
 	padding-bottom: 25px;
 }
 
@@ -26,32 +26,6 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 60%;
-}
-
-.cell{
-	text-decoration:none;
-}
-
-.cell:hover{
-	border: 1px solid green;
-	border-radius: 5px;
-	background-color:#c1e1ff;
-}
-
-.cell-text{
-	text-align: center;
-	padding: 10px;
-	color: black;
-	
-	font-family:georgia,garamond,serif;
-	font-size:18px;
-}
-.cell-image{
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 70%;
-	padding: 10px;
 }
 
 pre code {
@@ -88,4 +62,9 @@ del{
 	height:350px;
 	width:350px;
 	padding-bottom: 25px;
+}
+
+.link-to-tuts-list{
+	text-align: center;
+	font-size: 18px;
 }

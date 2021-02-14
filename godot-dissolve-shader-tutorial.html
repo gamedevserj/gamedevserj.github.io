@@ -288,7 +288,7 @@ void fragment()
 			</div>
 			<div class = "text">
 			And that seems to be it, but there are few problems with this code. First of all, if you set the dissolve amount to be 0, you still have the edge visible. 
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/dissolve-at-0-issue.png" class="example-image-small">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/dissolve-at-0-issue.png" class="example-image-small">
 			<p>This goes all the way back to our step1 and step2 variables and the way we defined dissolveAmount property.
 
 			<p>Set the dissolve amount to 0 and edgeSize to 0.1 and then change the last line to
@@ -329,7 +329,7 @@ void fragment()
 			<div class = "text">
 			And now our edge can disappear completely!
 			<p>But there is another issue at hand – if you set dissolveAmount something like 0.5 or lower you'll see that edge starts to lose color. 
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/dissolve-edge-color-issue.png" class="example-image-small"> 
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/dissolve-edge-color-issue.png" class="example-image-small"> 
 			<p>If you want to visualize what is happening – go to color picker again and set red channel all the way to 255, green and blue to 0. This is our edge color where original image is completely black.
 			<p>But what if our original image has some color, let's add it – add green and blue to something like 200, the color you'll get is very pale pink. Simply adding edge color on top of the original image won't work if we want a clearly defined edge color regardless of the original image color.
 			<p>There is a solution to this problem – mix() function. It requires 3 parameters, the first two are just color information we want to "combine", and the third one is going to act as a mask as to where to apply the second color and discard the first one.

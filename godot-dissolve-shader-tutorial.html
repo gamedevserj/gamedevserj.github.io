@@ -2,14 +2,14 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="Styles/styles.css">
-		<link rel="icon" href="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/Dissolve2D_final_small.gif">
+		<link rel="icon" href="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/Dissolve2D_final_small.gif">
 		<title>Dissolve shader</title>
 	</head>
   
 	<body class="background">
 		<div class="center">
 			<h1 class="title">Dissolve shader</h1>
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/Dissolve2D_final.gif" class="example-image-big">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/Dissolve2D_final.gif" class="example-image-big">
 			<div class="text">
 				Dissolve shader is probably one of the commonly used ones, there are a lot of tutorials online about it. This one is aimed at beginners and I'll try to go into as much detail as possible into what is happening and why.
 	With that said - I am not a shader expert and I would advise to learn from multiple sources.
@@ -31,9 +31,9 @@ void fragment()
 			Everything that goes inside fragment function from this point onward is going to be placed between originalTexture and COLOR.
 
 			<p>Usually dissolve shaders use noise texture to dissovle object in a pretty way. 
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/noise.png" class="example-image-small">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/noise.png" class="example-image-small">
 			<p>We're going to use a simple gradient first to better see what is happening under the hood. 
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/gradient.png" class="example-image-small">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/gradient.png" class="example-image-small">
 			Let's create a property for it. Write this below the shader type and above the fragment function.
 			
 			</div>
@@ -123,7 +123,7 @@ void fragment()
 			We can see that gradient is gone, and there are two separate areas. Change the dissolveAmount slider to see how it affects the image.
 			</div>
 			<div class = "text">
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/step1.png" class="example-image-small">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/step1.png" class="example-image-small">
 			</div>
 			<div class = "text">
 			We named the variable step1, because we're going to use another step with slightly greater dissolve amount to add the glowing edge.
@@ -208,7 +208,7 @@ void fragment()
 }
 			</code></pre>
 			<div class = "text">
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/edge.png" class="example-image-small">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/edge.png" class="example-image-small">
 			</div>
 			<div class = "text">
 			Now that we have our edge – let's give it some color. Add it as a property, so it could be easily changed.
@@ -232,7 +232,7 @@ void fragment()
 }
 			</code></pre>
 			<div class = "text">
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/edge-color.png" class="example-image-small">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/edge-color.png" class="example-image-small">
 			</div>
 			<div class = "text">
 			Now that we have all of that it's time to make things transparent. Before that we were using vec4 variables without accessing individual channels, but this time we're going to use red channel of our step1 variable to change the alpha of the original image. 
@@ -257,7 +257,7 @@ void fragment()
 }
 			</code></pre>
 			<div class = "text">
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/original-and-edge.png" class="example-image-small">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/original-and-edge.png" class="example-image-small">
 			</div>
 			<div class = "text">
 			And now we can multiply the alpha channel of the new texture by the step1 red channel values. Areas that were black in step1 variable will be transparent (for demonstration purposes – green).
@@ -282,7 +282,7 @@ void fragment()
 }
 			</code></pre>
 			<div class = "text">
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/dissolve-alpha.png" class="example-image-small"> 
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/dissolve-alpha.png" class="example-image-small"> 
 			</img>
 			</div>
 			<div class = "text">
@@ -381,12 +381,12 @@ void fragment()
 	COLOR = combinedColor;
 }
 			</code></pre>
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/dissolve-edge-color-issue-solved.png" class="example-image-small">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/dissolve-edge-color-issue-solved.png" class="example-image-small">
 			<div class = "text">
 			Looks like it's working, but if we change our sprite to something that has transparent areas we will see another issue.
 			</div>
 			<div class = "text">
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/edge-transparency-issue.png" class="example-image-small">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/edge-transparency-issue.png" class="example-image-small">
 			</div>
 			<div class = "text">
 			Our egde doesn't take into account the original image alpha channel. Let's fix that!
@@ -413,11 +413,11 @@ void fragment()
 	COLOR = combinedColor;
 }
 			</code></pre>
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/final.png" class="example-image-small">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/final.png" class="example-image-small">
 			<div class = "text">
 			And that's it, we have a working dissolve shader! Now we can switch our gradient with a noise texture and we're good to go.
 
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/Dissolve2D_final.gif" class="example-image-small">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/Dissolve2D_final.gif" class="example-image-small">
 
 			<p>One last thing we could add is the ability to change the tiling of the noise to allow for more control over the dissolve look.
 			</div>
@@ -446,7 +446,7 @@ void fragment()
 			</code></pre>
 			<div class = "text">
 			This is how it would look like with gradient noise and tiling of 4
-			<img src="https://raw.githubusercontent.com/gamedevserj/gamedevserj.github.io/master/Images/GodotDissolveShaderTutorial/noise-tiling.png" class="example-image-small">
+			<img src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/noise-tiling.png" class="example-image-small">
 			</div>
 			<h2>Notes</h2>
 			<div class = "text">

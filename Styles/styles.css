@@ -51,6 +51,8 @@ pre code {
 	display: block;
 	padding: 10px;
 	font-size: 15px;
+	word-wrap: break-word;
+	white-space: pre-wrap;
 }
 
 ins{

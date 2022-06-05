@@ -64,6 +64,15 @@ del{
 	padding-bottom: 25px;
 }
 
+.example-image-wide{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height:350px;
+	width:700px;
+	padding-bottom: 25px;
+}
+
 .link-to-tuts-list{
 	text-align: center;
 	font-size: 18px;

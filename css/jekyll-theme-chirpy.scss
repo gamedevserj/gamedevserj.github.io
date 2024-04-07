@@ -1,0 +1,31 @@
+---
+---
+
+@import 'main';
+
+/* append your custom style below */
+
+@import 'dark-code';
+@import 'light-code';
+@import 'code-color';
+@import 'dark-background';
+@import 'light-background';
+@import 'background-color';
+
+.image-in-tutorial {
+    padding: 5px;
+    border: 1px solid var(--sidebar-hover-bg);
+    background-color: var(--sidebar-bg);
+    border-radius: 1%;
+    width: 350px;
+    height: 350px;
+}
+
+.image-in-tutorial-wide{
+    padding: 5px;
+    border: 1px solid var(--sidebar-hover-bg);
+    background-color: var(--sidebar-bg);
+    border-radius: 1%;
+    width: 650px;
+    height: 350px;
+}

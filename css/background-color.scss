@@ -1,0 +1,24 @@
+html {
+  @media (prefers-color-scheme: light) {
+    &:not([data-mode]),
+    &[data-mode='light'] {
+      @include light-background;
+    }
+
+    &[data-mode='dark'] {
+      @include dark-background;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &:not([data-mode]),
+    &[data-mode='dark'] {
+      @include dark-code;
+    }
+
+    &[data-mode='light'] {
+      @include dark-background;
+    }
+  }
+}
+

@@ -1,0 +1,22 @@
+@mixin dark-code {
+    td.rouge-code {
+      /*
+        Prevent some browser extends from
+        changing the URL string of code block.
+      */
+      a {
+        color: inherit !important;
+        border-bottom: none !important;
+        pointer-events: none;
+      }
+      pre{
+        ins {
+            background-color: #004600;
+            text-decoration: none;
+        }
+        del {
+            background-color: #8B0000;
+        }
+      }
+    }
+}

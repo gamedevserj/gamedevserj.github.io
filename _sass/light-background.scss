@@ -1,0 +1,16 @@
+@mixin light-background {
+    --main-bg: #ffffff;
+    --sidebar-bg: #eff1f3;
+    --sidebar-hover-bg: #e1e1e9;
+    --highlight-bg-color: #eff1f3;
+    
+    .code-header{
+        .highlighter-rouge {
+            background-color: var(--highlight-bg-color);
+        }
+    }
+    .highlight {
+        background-color: var(--highlight-bg-color);
+    }
+    
+}

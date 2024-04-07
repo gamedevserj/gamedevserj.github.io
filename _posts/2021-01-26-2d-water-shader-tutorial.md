@@ -5,7 +5,7 @@ date: 2021-01-26
 tags: tutorial shader
 ---
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/Water_final.gif">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/Water_final.gif" alt="Final gif">
 
 The shader contains the following features: distortion, reflection, shoreline foam, and waves. We already covered distortion in the previous tutorial about invisibility shader, so all we need is reflection, shoreline, and waves.
 
@@ -31,11 +31,11 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/start.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/start.png" alt="Initial image">
 
 If you change the variable to something like 0.5 you'll see that top part of the sprtie becomes lighter. This is how we're going to make waves – by changing the alpha of a certain chuck at the top. 
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/dist_0.5.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/dist_0.5.png" alt="Distance 0.5">
 
 Let's add a smoothstep method to make things more distinct and allow us to control the "smoothness" of our waves.
 
@@ -57,7 +57,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/smoothstep.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/smoothstep.png" alt="Smoothstep">
 
 Now that we have that setup we can calculate the distFromTop variable to make actual waves. For that we're going to use sine wave function.
 
@@ -85,7 +85,7 @@ void fragment()
 
 It looks fine when our amplitude is quite low, but if we set it to higher values the top of the waves if going to be cut off.
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/wave_cut_off.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/wave_cut_off.png" alt="Wave cut off">
 
 To solve that we simply add wave amplitude at the end of our equation.
 
@@ -111,7 +111,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/wave_fixed.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/wave_fixed.png" alt="Wave fixed">
 
 You notice that variables have 'main' prefix and our waves don't look natural, by adding another set of waves we can achieve a more randomized look. The code in the repository will have those waves, but we're going to skip this part here. Next one is shoreline, it's quite simple – we're going to use the same calculation we did for the wave area, but we're going to subtract a value – which will determine our shoreline size. 
 
@@ -145,7 +145,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/shoreline.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/shoreline.png" alt="Shoreline">
 
 Additionally you might want to have a shoreline foam, which is quite simple to add. The calculation is similat to the one we use for waveArea.
 
@@ -193,19 +193,19 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/shoreline_foam.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/shoreline_foam.png" alt="Shoreline foam">
 
 Note that we can calculate the shoreline in the same manner and it would blend in better into foam, if that's the look you're going after.
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/shoreline_foam_blending.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/shoreline_foam_blending.png" alt="Shoreline foam blending">
 
 The last part to add is the reflection. If you've read the magnifying glass tutorial or invisibility effect shader tutorial you probably know that we're going to use SCREEN_TEXTURE. And similarly to magnifying glass shader tutorial most of the work is going to be done in script. Since we're flipping the SCREE_TEXTURE vertically around the center of the screen we're going to need our object to track it's position on screen and adjust the offset accordingly. Here's a visual representation of the issue. In the first image the water's origin is in the middle of the screen and reflection works fine.
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/reflection_centered.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/reflection_centered.png" alt="Reflection centered">
 
 In the second image water is located lower than the screen center, left side is original and right side is flipped. You can see that top of the house matches the reflection (apart from the wave distortion), this means that we need to offset the reflection.
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/reflection_issue.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/reflection_issue.png" alt="Reflection issue">
 
 Here's the script that takes into account position of the water:
 

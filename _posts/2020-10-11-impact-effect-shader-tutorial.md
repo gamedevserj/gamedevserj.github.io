@@ -5,7 +5,7 @@ date: 2020-10-11
 tags: tutorial shader
 ---
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/Impact_effect_final.gif">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/Impact_effect_final.gif" alt="Final gif">
 
 This shader simulates an effect of a shockwave, something that is usually used with explosions.
 
@@ -33,13 +33,13 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/default.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/default.png"  alt="Default color">
 
 Just like with invisibility shader we use smoothstep to darken the noise and be able to set offsetStrength in more reasonable range (0 to 1 rather than small fractions).
 
 This shader will hide the object by making its color the same as the background. If we start increasing offsetStrength we will see that the image is shifting towards bottom left. 
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/offset_default.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/offset_default.png" alt="Offset default">
 
 This is the origin of SCREEN_UV coordinates, subtracting the noiseOffset would move the image towards upper right. So what we need right now is to find a way to calculate the offset using our original image center as origin.
 
@@ -72,7 +72,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/offset_centered_squeeze.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/offset_centered_squeeze.png" alt="Offset centered squeeze">
 
 You can see that it sort of works, the image gets squished on X-axis and stretched on Y-axis. The reason for the is our centeredUV goes from -1 to 1, from left to right on X-axis and from top to bottom on Y-axis. In our previous example we added only positive number which moved the image to the bottom left, in this example left part of the circle is adding negative number, which moves that part of the image to the right.
 
@@ -105,7 +105,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/offset_correct.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/offset_correct.png" alt="Offset correct">
 
 Now let's use vertex positions instead. Our sprite is a quad with 4 vertices in each of the corners, every vertex has a position, and it so happens that they are also calculated based on object's center. So top left would be at (1, -1) and bottom right would be at (1, -1) when normalized. Make sure that the offset on your sprite is set to 0 (or if you're using this tutorial as a guide for Unity shaders – set the pivot of your sprite to be at the center of the object). 
 
@@ -176,4 +176,4 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/cleared_alpha.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/cleared_alpha.png" alt="Cleared alpha">

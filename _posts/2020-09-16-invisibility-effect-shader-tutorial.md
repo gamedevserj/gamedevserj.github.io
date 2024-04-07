@@ -5,7 +5,7 @@ date: 2020-10-04
 tags: tutorial shader
 ---
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/Invisibility_final.gif">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/Invisibility_final.gif" alt="Final gif">
 
 This shader is a dissolve shader with some modifications – we want the part that is transparent in the dissolve shader to have the color of the background with some distortion applied to it.
 
@@ -26,7 +26,7 @@ void fragment()
 
 If we increase tiling we're going to see the image being squished. If your image import settings have "repeat" enabled you'll see multiple copies of the image. And if we change offset we'll see the image moving. 
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/tiling2_offset0.2.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/tiling2_offset0.2.png" alt="Tiling 2 offset 0.2">
 
 Now we can see that UV coordinates determine how an image is applied onto the surface, and by manipulating those we can change the way it looks thus giving us a way to make it distorted. Just like with dissolve shader we're going to use a grayscale texture, but this time it will serve as an indicator to which parts of the image should be distorted more.  
 
@@ -53,7 +53,7 @@ void fragment()
 
 Now if we set distortion strength to something like 0.1 and start changing the offset we'll see that the image is shifting.
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/distortion_on_image.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/distortion_on_image.png" alt="Distortion on image">
 
 Let's make it so that the distortion is happening without us having to change the offset in the editor by changing the offset over time.
 
@@ -81,7 +81,7 @@ void fragment()
 
 Now let's get onto integrating it into our dissolve shader. Comment it out for the time being. You will see the image as is.
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/default_fox.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/default_fox.png" alt="Default fox">
 
 In the dissolve shader the dissolved part is completely transparent and doesn't have any information about what is behind the object in the scene. To have that information we're going to use SCREEN_TEXTURE
 
@@ -108,7 +108,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/scr_tex_obj_uv.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/scr_tex_obj_uv.png" alt="Screen texture object UV">
 
 You can see that currently everything we see on the screen is squished into our sprite and the image is upside down. That's because we're using the object's UV coordinates. Let's use the SCREEN_UV to properly apply the screen texture.
 
@@ -136,7 +136,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/scr_tex_scr_uv.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/scr_tex_scr_uv.png" alt="Screen texture screen UV">
 
 Looks like our sprite disappeared! What actually happens is that it simply has the same colors as the objects behind it. We can see that if we add some tint to it.
 
@@ -165,7 +165,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/scr_tex_scr_uv_color.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/scr_tex_scr_uv_color.png" alt="Screen texture UV color">
 
 We can see the whole quad being tinted instead of the parts that are visible in the original sprite, but it's something that we already dealt with in our dissolve sprite and since we will combine both shaders in the end, this problem will be sorted. Now that we can see our object properly, let's add our calculated distortion to the image. Uncomment the code we had before adn add the following changes: 
 
@@ -246,11 +246,11 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/combined_no_smoothstep0.1.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/combined_no_smoothstep0.1.png" alt="Combined no smoothstep 0.1">
 
 Looks like it's working, but if we change the strength to something like 0.25 we'll see that everything is shifted quite a lot and it doesn't really look like the object distorts something right behind it.
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/combined_no_smoothstep0.25.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/combined_no_smoothstep0.25.png" alt="Combined no smoothstep 0.25">
 
  That's because the noise texture that we use doesn't have completely black areas, mostly light shades of gray. Which means that when we multiply we increase offset for every part of the image by some amount. To counter that we can either use a texture with more black and darker areas or we could use smoothstep function instead to make our current noise texture darker.
 
@@ -309,7 +309,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/Invisibility_final.gif">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/Invisibility_final.gif" alt="Final gif">
 
 # Notes
 

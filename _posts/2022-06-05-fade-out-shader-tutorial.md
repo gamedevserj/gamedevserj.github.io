@@ -5,7 +5,7 @@ date: 2022-06-05
 tags: tutorial shader
 ---
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/fade_out_final.gif">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/fade_out_final.gif" alt="Final gif">
 
 Today we're going to be figuring out how to make a fade out shader that can fade out to a certain point of the screen.
 
@@ -51,7 +51,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade.jpg">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade.jpg" alt="UV fade">
 
 As you can see the upper left corner is completely transparent, while the bottom right one is completely black. That's because as we already know our UVs start at the tope left. Let's add a step function to see the difference more clearly.
 
@@ -76,7 +76,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_step.jpg">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_step.jpg" alt="UV fade step">
 
 Now, if we set fadeAmount to 1 we will see how it affects our image. The length() function returns the magnitude of the vector we provided for it – in this case UV coordinates. The bottom right corner has coordinates of (1, 1) and magnitude of such vector is ~1.4142, that's why at the fadeAmount of 1 we still have a corner that is completely transparent.
 
@@ -103,7 +103,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_center.jpg">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_center.jpg" alt="UV fade center">
 
 We simply offset our UV coordinates by 0.5 and there you go – we have a circle! You'll notice that the effect we have is inverted – instead of having a transparent circle and blacked out sides we have a black circle, don't worry we address it a few steps later.
 
@@ -173,7 +173,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_smoothstep_broken.jpg">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_smoothstep_broken.jpg" alt="UV fade smoothstep broken">
 
 Hmm, I think we broke something – when fadeSmoothing is set to 0 the image fades out instantly, if we increase and and play around with fadeAmount parameter it fades out gradually, but it does so equally in every part of the image. The reason is previously we compared fadeAmount to the fadeDistance, the area where fadeDistance was greater than fadeAmount was transparent. And in smoothstep() function we just added this value doesn't take part at all. Let's add it in.
 
@@ -201,7 +201,7 @@ void fragment()
 }
 </pre></td></tr></tbody></table></code></div></div>
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_smoothstep_fixed.jpg">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_smoothstep_fixed.jpg" alt="UV fade smoothstep fixed">
 
 What does exactly happens after we added this subtraction? Now we're comparing the difference between the distance and our fadeAmount(remapped) which inverted our effect – exactly what we needed. There's one small thing – when we set our fadeAmount to 1 it is completely transparent. I prefer it to be opposite – transparent image when fadeAmount is 0 and completely faded out when it is 1. It is a simple fix, we just need to invert the fadeAmount by subtracting it from 1.
 
@@ -290,13 +290,13 @@ void fragment()
 
 Now when our offset.x value is equal to 1 the center is at the right point of the image and if it is 0 – at the left side. Similarly for the Y-axis where 1 is the bottom and 0 is the top.
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_right_side.jpg">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_right_side.jpg" alt="UV fade right side">
 
 Is that it? Do we finally have a fully working shader? Nope.
 
 Usually compters have screens that are not square shaped, but if we scale our sprite, say make it 2 times wider we'll see that our perfect circle turns into an oval. 
 
-<img class = "image-in-tutorial-wide" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_oval.jpg">
+<img class = "image-in-tutorial-wide" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_oval.jpg" alt="UV fade oval">
 
 So, to fix that we'll add a tiling parameter and multiply the UV by it.
 
@@ -332,7 +332,7 @@ void fragment()
 
 Lets set the X value of the tiling parameter to be 2. The circle is back, but it is moved to the left side. Why is that? 
 
-<img class = "image-in-tutorial-wide" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_oval_fixed_left_side.jpg">
+<img class = "image-in-tutorial-wide" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_oval_fixed_left_side.jpg" alt="UV fade oval fixed left side">
 
 Previously our UVs went from 0 to 1:
 Top left (0, 0)
@@ -360,11 +360,11 @@ Bottom right (1.5, 1.5)
 
 So the center is moved and if we set the offset.x to be equal to 1 it's going to be centered again. But it doesn't fade out the image completely – the sides are still black. Why is that? Because our hypotenuse is no longer equal to ~0.707 because the length of our triangle side on the X-axis is different.
 
-<img class = "image-in-tutorial-wide" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_wide_not_full.jpg">
+<img class = "image-in-tutorial-wide" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_wide_not_full.jpg" alt="UV fade wide not full">
 
 So how do we deal with this? We can make our fade object square again and increase its size to be bigger than the screen and then move it to the point where we want the fade to collapse at. Nothing wrong with this approach, just one small thing – say, for example, we want the center of the fade out to be right at one of the edges of the screen. That means that our object needs to have the two times the width of the screen. But if we have the object of that size and our fade out center is in the center of the screen it would mean that from the moment fade out starts, to the moment when it is visible on screen there will be some time where nothing is happening. See the image below to visualize the issue. 
 
-<img class = "image-in-tutorial-wide" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_size_issue.jpg">
+<img class = "image-in-tutorial-wide" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_size_issue.jpg" alt="UV fade size issue">
 
 It's not a huge thing, but we can deal with it. We can either do it by adjusting the size of the sprite object when we determine the point where the fade out should happen, or we can set the image to be the size of the screen and simply adjust shader parameters.
 

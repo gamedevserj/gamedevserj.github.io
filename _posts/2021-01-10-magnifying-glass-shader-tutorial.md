@@ -5,7 +5,7 @@ date: 2021-01-10
 tags: tutorial shader
 ---
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotMagnifyingGlassShaderTutorial/Magnifying_glass_final.gif">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotMagnifyingGlassShaderTutorial/Magnifying_glass_final.gif" alt="Final gif">
 
 This tutorial is going to be a little bit different. We're going to have a complete shader from the start and we'll be trying to figure out how to manipulate tiling and offset to achieve the desired effect.
 
@@ -26,11 +26,11 @@ void fragment()
 
 As you can see the only thing this shader can do is change the image tiling and offset. If you set tiling on the X axis to be less than 1 you'll see that the image is stretching horizontally to the right, the same goes for Y axis with stretching going up. The reason for that is the origin of the SCREEN_UV is at the bottom left corner. If we have the magnifying glass object at the center of the screen and set the tiling to something like 0.7 on both axis the image is magnified, but it's not aligned with what we should be seeing, we need to offset it to match the background.
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotMagnifyingGlassShaderTutorial/tiling.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotMagnifyingGlassShaderTutorial/tiling.png" alt="Tiling">
 
 Set the offset to be 0.15 on both axis and you'll get the proper alignment!
 
-<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotMagnifyingGlassShaderTutorial/tiling_and_offset.png">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotMagnifyingGlassShaderTutorial/tiling_and_offset.png" alt="Tiling and offset">
 
 But there's a catch – move the magnifying glass somewhere else from the center of the screen and you'll set that the effect is broken. We need to find a way to calculate the offset to keep the magnified version of the screen aligned based on the object's position on the screen and the tiling amount. Essentially this is remapping of values which we already encountered in the dissolve shader tutorial. But this time we'll be doing it in a script!
 

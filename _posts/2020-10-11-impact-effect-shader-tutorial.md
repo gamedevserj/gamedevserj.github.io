@@ -3,6 +3,7 @@ layout: post
 title:  "Impact effect shader tutorial"
 date: 2020-10-11
 tags: tutorial shader
+author: gamedevserj
 ---
 
 <img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/ImpactEffectShaderTutorial/Impact_effect_final.gif" alt="Final gif">

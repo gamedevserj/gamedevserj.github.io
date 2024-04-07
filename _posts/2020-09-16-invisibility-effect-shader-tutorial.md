@@ -3,6 +3,7 @@ layout: post
 title:  "Invisibility effect shader tutorial"
 date: 2020-10-04
 tags: tutorial shader
+author: gamedevserj
 ---
 
 <img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotInvisibilityShaderTutorial/Invisibility_final.gif" alt="Final gif">

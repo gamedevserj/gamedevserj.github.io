@@ -3,6 +3,7 @@ layout: post
 title:  "Magnifying glass shader tutorial"
 date: 2021-01-10
 tags: tutorial shader
+author: gamedevserj
 ---
 
 <img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotMagnifyingGlassShaderTutorial/Magnifying_glass_final.gif" alt="Final gif">

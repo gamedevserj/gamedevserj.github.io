@@ -3,6 +3,7 @@ layout: post
 title:  "Dissolve shader tutorial"
 date: 2020-09-16
 tags: tutorial shader
+author: gamedevserj
 ---
 
 <img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotDissolveShaderTutorial/Dissolve2D_final.gif" alt="Final gif">

@@ -3,6 +3,7 @@ layout: post
 title:  "Fade out shader tutorial"
 date: 2022-06-05
 tags: tutorial shader
+author: gamedevserj
 ---
 
 <img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/fade_out_final.gif" alt="Final gif">

@@ -3,6 +3,7 @@ layout: post
 title:  "Water shader tutorial"
 date: 2021-01-26
 tags: tutorial shader
+author: gamedevserj
 ---
 
 <img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotWater2DShaderTutorial/Water_final.gif" alt="Final gif">

@@ -365,7 +365,7 @@ So the center is moved and if we set the offset.x to be equal to 1 it's going to
 
 So how do we deal with this? We can make our fade object square again and increase its size to be bigger than the screen and then move it to the point where we want the fade to collapse at. Nothing wrong with this approach, just one small thing – say, for example, we want the center of the fade out to be right at one of the edges of the screen. That means that our object needs to have the two times the width of the screen. But if we have the object of that size and our fade out center is in the center of the screen it would mean that from the moment fade out starts, to the moment when it is visible on screen there will be some time where nothing is happening. See the image below to visualize the issue. 
 
-<img class = "image-in-tutorial-wide" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_size_issue.jpg" alt="UV fade size issue">
+<img class = "image-in-tutorial" src="https://raw.githubusercontent.com/gamedevserj/Images-For-Repo/main/Site/GodotFadeOutShaderTutorial/uv_fade_size_issue.jpg" alt="UV fade size issue">
 
 It's not a huge thing, but we can deal with it. We can either do it by adjusting the size of the sprite object when we determine the point where the fade out should happen, or we can set the image to be the size of the screen and simply adjust shader parameters.
 
